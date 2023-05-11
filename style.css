@@ -1,5 +1,21 @@
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #1D1D2B;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 body {
     font-family: Arial, sans-serif;
+    background-color: #3498db;
+    color: white;
 }
 
 header {
@@ -13,8 +29,33 @@ main {
     padding: 20px;
 }
 
+#search-bar {
+    width: 300px;
+    height: 25px;
+}
+
+#search-button {
+    height: 30px;
+    background-color: #f1c40f;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.local {
+    margin-top: 20px;
+    border: 1px solid white;
+    padding: 10px;
+}
+
 footer {
-    background-color: #1D1D2B;
+    background-color: #3f51b5;
     color: white;
     text-align: center;
     padding: 10px 0;

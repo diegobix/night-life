@@ -13,9 +13,23 @@
       <h1>Bienvenido a NightLife</h1>
   </header>
   <main>
-    <section id="places">
+    <div>
+        <input type="text" id="search-bar" placeholder="Buscar locales...">
+        <button id="search-button">Buscar</button>
+    </div>
+
+    <div id="local-list">
         <!-- Los lugares se cargarán dinámicamente aquí -->
-    </section>
+        <div class="local">
+            <h2>Local 1</h2>
+            <p>Descripción del local 1...</p>
+        </div>
+
+        <div class="local">
+            <h2>Local 2</h2>
+            <p>Descripción del local 2...</p>
+        </div>
+    </div>
 
     <form id="review-form">
         <label for="place">Lugar:</label>

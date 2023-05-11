@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Night Life</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container">
-    <h1>Night Life</h1>
+  <header>
+      <h1>Bienvenido a NightLife</h1>
+  </header>
 
     <p>Hello World!??????xdxd</p>
 
-    <p>Hello Worlddddddd!</p>
-  </div>
+      <form id="review-form">
+          <label for="place">Lugar:</label>
+          <input type="text" id="place" name="place">
 
+          <label for="review">Reseña:</label>
+          <textarea id="review" name="review"></textarea>
+
+          <label for="rating">Puntuación:</label>
+          <input type="number" id="rating" name="rating" min="1" max="5">
+
+          <input type="submit" value="Enviar reseña">
+      </form>
+
+      <section id="tickets">
+          <!-- Aquí se implementaría la compra de entradas -->
+      </section>
+  </main>
+
+  <footer>
+      <p>&copy; 2023 NightLife</p>
+  </footer>
+
+  <script src="script.js"></script>
   <script src="main.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

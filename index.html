@@ -12,26 +12,28 @@
   <header>
       <h1>Bienvenido a NightLife</h1>
   </header>
+  <main>
+    <section id="places">
+        <!-- Los lugares se cargarán dinámicamente aquí -->
+    </section>
 
-    <p>Hello World!??????xdxd</p>
+    <form id="review-form">
+        <label for="place">Lugar:</label>
+        <input type="text" id="place" name="place">
 
-      <form id="review-form">
-          <label for="place">Lugar:</label>
-          <input type="text" id="place" name="place">
+        <label for="review">Reseña:</label>
+        <textarea id="review" name="review"></textarea>
 
-          <label for="review">Reseña:</label>
-          <textarea id="review" name="review"></textarea>
+        <label for="rating">Puntuación:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5">
 
-          <label for="rating">Puntuación:</label>
-          <input type="number" id="rating" name="rating" min="1" max="5">
+        <input type="submit" value="Enviar reseña">
+    </form>
 
-          <input type="submit" value="Enviar reseña">
-      </form>
-
-      <section id="tickets">
-          <!-- Aquí se implementaría la compra de entradas -->
-      </section>
-  </main>
+    <section id="tickets">
+        <!-- Aquí se implementaría la compra de entradas -->
+    </section>
+</main>
 
   <footer>
       <p>&copy; 2023 NightLife</p>

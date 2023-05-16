@@ -2,8 +2,9 @@ import data from './api.js'
 
 document.querySelector('.create').addEventListener('submit', async e => {
   e.preventDefault()
-  const token = JSON.parse(localStorage.getItem('NightLifeUser')).token
+  const storedUsr = localStorage.getItem('NightLifeUser')
   if (!token) return alert('No estas loggeado!')
+  const token = JSON.parse(storedUsr).token
   const formData = new FormData(e.target)
   const localData = {}
   formData.forEach((val, key) => localData[key] = val)

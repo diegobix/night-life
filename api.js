@@ -34,7 +34,19 @@ const login = async (user, pass) => {
 }
 
 const createLocal = async (local, token) => {
-  
+  const uri = baseUrl + 'locales'
+  const res = await fetch(uri, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(local)
+  })
+  const data = await res.json()
+
+  if (res.status === 401) throw data.error
+  return data
 }
 
-export default {getAllLocals, getLocal, login}
+export default {getAllLocals, getLocal, login, createLocal}

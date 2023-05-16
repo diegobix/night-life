@@ -1,65 +1,80 @@
+* {
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  width: 100%;
+  background-color: bisque;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  max-width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.links {
+  display: flex;
+  height: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
+.links a {
+  text-decoration: none;
+  display: flex;
+  color: black;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+.links a:hover {
+  background-color: rgba(0,0,0, 0.1);
+}
+
 main {
-    padding: 20px;
+  margin: 50px 0;
 }
 
-footer {
-    background-color: #1D1D2B;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.container {
+  max-width: 80%;
+  margin: 0 auto;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1D1D2B;
-    color: white;
+.card {
+  margin-bottom: 10px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow:  30px 30px 60px #bebebe,
+              -30px -30px 60px #ffffff;
 }
 
-header {
-    background-color: #1D1D2B;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+.card button {
+  background: none;
+  border: none;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 }
 
-main {
-    padding: 20px;
-}
-
-#search-bar {
-    width: 300px;
-    height: 25px;
-}
-
-#search-button {
-    height: 30px;
-    background-color: #232938;
-    border: none;
-    color: white;
-    padding: 5px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.local {
-    margin-top: 20px;
-    border: 1px solid white;
-    padding: 10px;
-}
-
-footer {
-    background-color: #1D1D2B;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.card button:hover {
+  background-color: rgba(0,0,0, 0.05);
 }

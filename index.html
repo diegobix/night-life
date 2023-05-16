@@ -1,62 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Night Life</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Night Life Api Demo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-      <h1>Bienvenido a NightLife</h1>
-  </header>
+  <nav>
+    <div class="nav-container">
+      <div class="links">
+        <a href="#" class="selected">Locales</a>
+        <a href="create.html">Crear local</a>
+        <a href="login.html">Login</a>
+      </div>
+      <span class="nav-text">Hello Diego</span>
+    </div>
+  </nav>
   <main>
-    <div>
-        <input type="text" id="search-bar" placeholder="Buscar locales...">
-        <button id="search-button">Buscar</button>
+    <div class="container">
     </div>
+  </main>
 
-    <div id="local-list">
-        <!-- Los lugares se cargarán dinámicamente aquí -->
-        <div class="local">
-            <h2>Local 1</h2>
-            <p>Descripción del local 1...</p>
-        </div>
-
-        <div class="local">
-            <h2>Local 2</h2>
-            <p>Descripción del local 2...</p>
-        </div>
+  <template id="template">
+    <div class="card">
+      <button>
+        <h3><a href=""></a> La taberna</h3>
+        <p id="dir">Calle de Salamanca, 5</p>
+        <p id="horario">13:00-21:00</p>
+      </button>
     </div>
+  </template>
 
-    <form id="review-form">
-        <label for="place">Lugar:</label>
-        <input type="text" id="place" name="place">
-
-        <label for="review">Reseña:</label>
-        <textarea id="review" name="review"></textarea>
-
-        <label for="rating">Puntuación:</label>
-        <input type="number" id="rating" name="rating" min="1" max="5">
-
-        <input type="submit" value="Enviar reseña">
-    </form>
-
-    <section id="tickets">
-        <!-- Aquí se implementaría la compra de entradas -->
-    </section>
-</main>
-
-  <footer>
-      <p>&copy; 2023 NightLife</p>
-  </footer>
-
-  <script src="script.js"></script>
-  <script src="main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="locales.js" type="module"></script>
 </body>
 </html>

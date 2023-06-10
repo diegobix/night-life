@@ -6,13 +6,26 @@ const fragment = document.createDocumentFragment();
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchData();
+  const links = document.querySelectorAll(".links a");
+  links[links.length - 1].classList.add("selected");
 });
 
+const checkToken = () => {
+  const storedUser = localStorage.getItem("NightLifeUser");
+  if (storedUser && storedUser !== undefined) {
+    return JSON.parse(storedUser).token;
+  }
+
+  alert("No estás loggeado!");
+  window.location.href = "index.html";
+};
+
 const fetchData = async () => {
+  const token = checkToken();
   try {
-    const locals = await data.getAllLocals();
-    console.log(locals);
-    pintarLocales(locals);
+    const user = await data.getUserInfo(token);
+    console.log(user.locales);
+    pintarLocales(user.locales);
   } catch (error) {
     console.error(error);
   }

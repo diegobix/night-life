@@ -33,8 +33,12 @@ const checkIfOwned = (local) => {
   const del = document.createElement("button");
   del.textContent = "Eliminar";
   del.addEventListener("click", () => {
-    data.deleteLocal(local.id, myUser.token);
-    alert("El local ha sido eliminado.");
+    try {
+      data.deleteLocal(local.id, myUser.token);
+      alert("El local ha sido eliminado.");
+    } catch (error) {
+      alert(error);
+    }
     window.location.href = "my-locals.html";
   });
 

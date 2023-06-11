@@ -82,6 +82,7 @@ const pintarLocal = (loc) => {
   local.querySelector("#dir").textContent = loc.direccion;
   local.querySelector("#hor").textContent = loc.horario;
   local.querySelector("a").textContent = loc.url;
+  local.querySelector("a").href = "https://" + loc.url;
   local.querySelector("#precio").textContent = loc.consumicion;
   local.querySelector("#musica").textContent = loc.musica;
   local.querySelector("#nombre").textContent = loc.user.username;

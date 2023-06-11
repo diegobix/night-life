@@ -1,4 +1,4 @@
-import data from "./api.js";
+import api from "./api.js";
 
 const container = document.querySelector(".container");
 const template = document.getElementById("template").content;
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const fetchData = async () => {
   try {
-    const locals = await data.getAllLocals();
+    const locals = await api.getAllLocals();
     console.log(locals);
     pintarLocales(locals);
   } catch (error) {

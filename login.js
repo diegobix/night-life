@@ -1,4 +1,4 @@
-import data from "./api.js";
+import api from "./api.js";
 
 document
   .querySelector("#login-submit-btn")
@@ -10,7 +10,7 @@ document
     inputs["password"].value = "";
     inputs["username"].value = "";
     try {
-      const user = await data.login(username, password);
+      const user = await api.login(username, password);
       localStorage.setItem("NightLifeUser", JSON.stringify(user));
       window.location.href = "index.html";
     } catch (error) {

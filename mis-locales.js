@@ -1,4 +1,4 @@
-import data from "./api.js";
+import api from "./api.js";
 
 const container = document.querySelector(".container");
 const template = document.getElementById("template").content;
@@ -23,7 +23,7 @@ const checkToken = () => {
 const fetchData = async () => {
   const token = checkToken();
   try {
-    const user = await data.getUserInfo(token);
+    const user = await api.getUserInfo(token);
     console.log(user.locales);
     pintarLocales(user.locales);
   } catch (error) {

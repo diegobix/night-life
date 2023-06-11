@@ -8,6 +8,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: white;
+}
+
 nav {
   width: 100%;
   background-color: bisque;
@@ -103,4 +107,68 @@ button {
 button:hover {
   background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+
+.reviews h2 {
+  padding: 20px 0;
+}
+
+.review-card {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.review-card:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.date {
+  color: #888;
+}
+
+.review-content {
+  font-size: 16px;
+}
+
+#create-review {
+  display: none;
+}
+
+#create-review.logged {
+  display: block;
+  padding: 10px 20px;
+}
+
+.review-card textarea {
+  padding: 5px;
+  width: 100%;
+  resize: vertical;
+}
+
+#form-btn-container {
+  display: flex;
+  justify-content: flex-end;
 }

@@ -37,9 +37,31 @@
         </div>
         <div class="reviews">
           <h2>Reviews</h2>
+
+          <div class="review-card" id="create-review">
+            <form>
+              <div>
+                <label for="content">Danos tu opinión</label>
+                <textarea name="content" rows="2" required></textarea>
+              </div>
+              <div id="form-btn-container">
+                <button id="submit-review-btn">Enviar</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </main>
+
+    <template id="template">
+      <div class="review-card">
+        <div class="review-header">
+          <span class="username">Nombre de usuario</span>
+          <span class="date">Fecha</span>
+        </div>
+        <div class="review-content"></div>
+      </div>
+    </template>
 
     <script src="main.js"></script>
     <script src="local.js" type="module"></script>

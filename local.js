@@ -1,4 +1,4 @@
-import data from "./api.js";
+import api from "./api.js";
 
 const getId = () => {
   const qs = window.location.search;
@@ -9,11 +9,41 @@ const getId = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchData();
+  if (isLogged()) displayReviewAdder();
 });
+
+const isLogged = () => {
+  const savedUser = localStorage.getItem("NightLifeUser");
+  if (!savedUser || savedUser === undefined) return false;
+  return true;
+};
+
+const getToken = () => {
+  const savedUser = localStorage.getItem("NightLifeUser");
+  if (!savedUser || savedUser === undefined) throw "No estás loggeado.";
+  return JSON.parse(savedUser).token;
+};
+
+const displayReviewAdder = () => {
+  document.querySelector("#create-review").classList.add("logged");
+  document
+    .querySelector("#submit-review-btn")
+    .addEventListener("click", async (e) => {
+      e.preventDefault();
+      const content = document.querySelector("#create-review textarea").value;
+      try {
+        await api.addReview(getId(), getToken(), content);
+        document.querySelector("#create-review textarea").value = "";
+      } catch (error) {
+        alert(error);
+      }
+      window.location.reload();
+    });
+};
 
 const fetchData = async () => {
   try {
-    const local = await data.getLocal(getId());
+    const local = await api.getLocal(getId());
     console.log(local);
     pintarLocal(local);
     checkIfOwned(local);
@@ -34,7 +64,7 @@ const checkIfOwned = (local) => {
   del.textContent = "Eliminar";
   del.addEventListener("click", () => {
     try {
-      data.deleteLocal(local.id, myUser.token);
+      api.deleteLocal(local.id, myUser.token);
       alert("El local ha sido eliminado.");
     } catch (error) {
       alert(error);
@@ -56,4 +86,25 @@ const pintarLocal = (loc) => {
   local.querySelector("#musica").textContent = loc.musica;
   local.querySelector("#nombre").textContent = loc.user.username;
   local.querySelector("#email").textContent = loc.user.email;
+  pintarReviews(loc.reviews);
+};
+
+const pintarReviews = (reviews) => {
+  reviews.reverse();
+  const template = document.querySelector("#template");
+  const reviewsContainer = document.querySelector(".reviews");
+  const fragment = document.createDocumentFragment();
+  reviews.forEach((rev) => {
+    const clone = template.content.cloneNode(true);
+    const date = new Date(rev.date);
+    clone.querySelector(".username").textContent = rev.user.username;
+    clone.querySelector(".date").textContent = formatDate(date);
+    clone.querySelector(".review-content").textContent = rev.content;
+    fragment.appendChild(clone);
+  });
+  reviewsContainer.appendChild(fragment);
+};
+
+const formatDate = (date) => {
+  return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 };

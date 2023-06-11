@@ -1,4 +1,5 @@
 const baseUrl = "https://night-life-api.onrender.com/api/";
+// const baseUrl = "http://localhost:3001/api/";
 
 const getAllLocals = async () => {
   const uri = baseUrl + "locales";
@@ -85,7 +86,26 @@ const deleteLocal = async (id, token) => {
       Authorization: `Bearer ${token}`,
     },
   });
+  const data = await res.json();
   if (res.status !== 204) throw data.error;
+};
+
+const addReview = async (id, token, content) => {
+  const uri = baseUrl + "locales/" + id + "/reviews";
+  const res = await fetch(uri, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ content }),
+  });
+
+  console.log(res);
+  if (res.status !== 200) {
+    const data = await res.json();
+    throw data.error;
+  }
 };
 
 export default {
@@ -96,4 +116,5 @@ export default {
   createLocal,
   getUserInfo,
   deleteLocal,
+  addReview,
 };

@@ -1,5 +1,11 @@
 import api from "./api.js";
 
+const storedUsr = localStorage.getItem("NightLifeUser");
+if (!storedUsr || storedUsr === undefined) {
+  alert("Debes iniciar sesión para crear locales.");
+  window.location.href = "login.html";
+}
+
 document.querySelector(".create").addEventListener("submit", async (e) => {
   e.preventDefault();
   const storedUsr = localStorage.getItem("NightLifeUser");

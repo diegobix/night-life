@@ -23,10 +23,15 @@ const printLocal = (local) => {
   console.log(local);
   inputs[0].value = local.nombre;
   inputs[1].value = local.direccion;
-  inputs[2].value = local.musica;
-  inputs[3].value = local.url;
-  inputs[4].value = local.consumicion;
-  inputs[5].value = local.horario;
+  inputs[5].value = local.musica;
+  inputs[6].value = local.url;
+  inputs[7].value = local.consumicion;
+  inputs[8].value = local.horario;
+  Array.from(inputs)
+    .slice(2, 5)
+    .forEach((rad) => {
+      rad.checked = rad.value === local.tipo ? true : false;
+    });
 };
 
 const onSubmit = async (e) => {

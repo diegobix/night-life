@@ -1,4 +1,5 @@
 import api from "./api.js";
+import helper from "../utils/helper.js";
 
 const getId = () => {
   const qs = window.location.search;
@@ -87,6 +88,7 @@ const pintarLocal = (loc) => {
   const local = document.querySelector(".local");
   local.querySelector("h2").textContent = loc.nombre;
   local.querySelector("#dir").textContent = loc.direccion;
+  local.querySelector("#tipo").textContent = helper.tipoToString(loc.tipo);
   local.querySelector("#hor").textContent = loc.horario;
   local.querySelector("a").textContent = loc.url;
   local.querySelector("a").href = "https://" + loc.url;

@@ -1,4 +1,5 @@
 import api from "./api.js";
+import helper from "../utils/helper.js";
 
 const container = document.querySelector(".container");
 const template = document.getElementById("template").content;
@@ -41,6 +42,7 @@ const pintarLocales = (locales) => {
   locales.forEach((local) => {
     const clone = template.cloneNode(true);
     clone.querySelector("h3").textContent = local.nombre;
+    clone.querySelector("#tipo").textContent = helper.tipoToString(local.tipo);
     clone.querySelector("#dir").textContent = local.direccion;
     clone.querySelector("#horario").textContent = local.horario;
 

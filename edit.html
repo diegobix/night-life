@@ -12,7 +12,7 @@
       <div class="nav-container">
         <div class="links">
           <a href="index.html">Locales</a>
-          <a href="create.html" class="selected">Crear local</a>
+          <a href="create.html">Crear local</a>
           <a id="login-btn" href="login.html">Login</a>
         </div>
         <span class="nav-text">Hello Diego</span>
@@ -21,6 +21,7 @@
 
     <main>
       <div class="container">
+        <h1>Editar local</h1>
         <form action="" class="create">
           <label for="nombre">Nombre del local</label>
           <input
@@ -40,6 +41,29 @@
             placeholder="Direccion"
             autocomplete="off"
           />
+
+          <fieldset class="tipo-selection">
+            <legend>Tipo de local</legend>
+            <div>
+              <input
+                type="radio"
+                name="tipo"
+                id="discoteca"
+                value="discoteca"
+                checked
+              />
+              <label for="discoteca">Discoteca</label>
+            </div>
+            <div>
+              <input type="radio" name="tipo" id="sala" value="sala" />
+              <label for="sala">Sala de Fiesta</label>
+            </div>
+            <div>
+              <input type="radio" name="tipo" id="bar" value="bar" />
+              <label for="bar">Bar de Copas</label>
+            </div>
+          </fieldset>
+
           <label for="musica">Tipo de música</label>
           <input
             required

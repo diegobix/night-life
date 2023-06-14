@@ -69,6 +69,10 @@ main {
   box-shadow: 30px 30px 60px #bebebe, -30px -30px 60px #ffffff;
 }
 
+.card h3 {
+  font-style: italic;
+}
+
 .card button {
   background: none;
   border: none;
@@ -171,4 +175,37 @@ button:hover {
 #form-btn-container {
   display: flex;
   justify-content: flex-end;
+}
+
+#search-form input {
+  width: auto;
+}
+
+.tipo-selection {
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.tipo-selection legend {
+  font-weight: bold;
+}
+
+.tipo-selection input {
+  display: inline;
+  width: 50px;
+  padding: 20px;
+}
+
+.tipo-selection label {
+  display: inline;
+  font-weight: 400;
+}
+
+.locales {
+  margin-top: 20px;
+}
+
+.forms-container {
+  display: flex;
+  justify-content: space-between;
 }

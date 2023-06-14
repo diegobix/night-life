@@ -48,10 +48,10 @@ const onSubmit = async (e) => {
   formData.forEach((val, key) => (localData[key] = val));
   try {
     await api.updateLocal(getId(), token, localData);
+    window.location.href = "local.html?id=" + getId();
   } catch (error) {
     alert(error);
   }
-  window.location.href = "local.html?id=" + getId();
 };
 
 document.addEventListener("DOMContentLoaded", () => {

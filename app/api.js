@@ -126,7 +126,6 @@ const updateLocal = async (id, token, local) => {
     body: JSON.stringify(local),
   });
   const data = await res.json();
-  console.log(data);
   if (res.status !== 200) {
     error(data.error);
   }

@@ -11,7 +11,6 @@ document.querySelector(".create").addEventListener("submit", async (e) => {
   console.log(localData);
   try {
     const local = await api.createLocal(localData, token);
-    console.log(local);
     window.location.href = "local.html?id=" + local.id;
   } catch (error) {
     console.error(error);

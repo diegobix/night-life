@@ -3,8 +3,9 @@ const baseUrl = "http://localhost:3001/api/";
 
 const removeLogin = () => {
   localStorage.removeItem("NightLifeUser");
-  alert("Vuelve a iniciar sesion");
-  window.location.href = login.html;
+  alert("La sesión ha expirado. Vuelve a entrar en tu cuenta.");
+  window.location.href = "login.html";
+  throw "La sesión ha expirado";
 };
 
 const getAllLocals = async () => {
@@ -15,17 +16,18 @@ const getAllLocals = async () => {
   return data;
 };
 
+const error = (msg) => {
+  if (msg === "token expired") removeLogin();
+  else throw msg;
+};
+
 const getLocal = async (id) => {
   const uri = baseUrl + "locales/" + id;
 
   const res = await fetch(uri);
   const data = await res.json();
   if (res.status === 404) {
-    if (data.error === "token expired") {
-      removeLogin();
-    } else {
-      throw data.error;
-    }
+    error(data.error);
   }
   return data;
 };
@@ -44,11 +46,7 @@ const login = async (user, pass) => {
   });
   const data = await res.json();
   if (res.status === 401) {
-    if (data.error === "token expired") {
-      removeLogin();
-    } else {
-      throw data.error;
-    }
+    error(data.error);
   }
   return data;
 };
@@ -64,11 +62,7 @@ const register = async (name, username, email, password) => {
   });
   const data = await res.json();
   if (res.status === 400) {
-    if (data.error === "token expired") {
-      removeLogin();
-    } else {
-      throw data.error;
-    }
+    error(data.error);
   }
 };
 
@@ -85,11 +79,7 @@ const createLocal = async (local, token) => {
   const data = await res.json();
 
   if (res.status === 401) {
-    if (data.error === "token expired") {
-      removeLogin();
-    } else {
-      throw data.error;
-    }
+    error(data.error);
   }
   return data;
 };
@@ -104,6 +94,9 @@ const getUserInfo = async (token) => {
     },
   });
   const data = await res.json();
+  if (res.status !== 200) {
+    error(data.error);
+  }
   return data;
 };
 
@@ -118,11 +111,7 @@ const deleteLocal = async (id, token) => {
   });
   const data = await res.json();
   if (res.status !== 204) {
-    if (data.error === "token expired") {
-      removeLogin();
-    } else {
-      throw data.error;
-    }
+    error(data.error);
   }
 };
 
@@ -139,11 +128,7 @@ const updateLocal = async (id, token, local) => {
   const data = await res.json();
   console.log(data);
   if (res.status !== 200) {
-    if (data.error === "token expired") {
-      removeLogin();
-    } else {
-      throw data.error;
-    }
+    error(data.error);
   }
 };
 
@@ -158,16 +143,9 @@ const addReview = async (id, token, content) => {
     body: JSON.stringify({ content }),
   });
 
-  console.log(res);
+  const data = await res.json();
   if (res.status !== 200) {
-    const data = await res.json();
-    {
-      if (data.error === "token expired") {
-        removeLogin();
-      } else {
-        throw data.error;
-      }
-    }
+    error(data.error);
   }
 };
 

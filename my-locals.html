@@ -19,7 +19,53 @@
       </div>
     </nav>
     <main>
-      <div class="container"></div>
+      <div class="container">
+        <div class="forms-container">
+          <form action="" id="search-form">
+            <div>
+              <label for="search">Buscar por nombre</label>
+              <input
+                type="search"
+                name="search"
+                placeholder="Nombre del local"
+              />
+            </div>
+          </form>
+          <form action="" id="type-form">
+            <fieldset class="tipo-selection">
+              <legend>Tipo de local</legend>
+              <div>
+                <input
+                  type="radio"
+                  name="tipo"
+                  id="todos"
+                  value="todos"
+                  checked
+                />
+                <label for="todos">Todos</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="tipo"
+                  id="discoteca"
+                  value="discoteca"
+                />
+                <label for="discoteca">Discoteca</label>
+              </div>
+              <div>
+                <input type="radio" name="tipo" id="sala" value="sala" />
+                <label for="sala">Sala de Fiesta</label>
+              </div>
+              <div>
+                <input type="radio" name="tipo" id="bar" value="bar" />
+                <label for="bar">Bar de Copas</label>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="locales"></div>
+      </div>
     </main>
 
     <template id="template">

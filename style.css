@@ -243,3 +243,84 @@ button:hover {
   justify-content: left;
   align-items: center;
 }
+
+.local {
+  background: linear-gradient(to right, #1c121d 33%, white 33%);
+  color: black;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+}
+
+.local .izq {
+  width: 100%;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tipo-local {
+  height: 100%;
+  flex: 1;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-right: 20%;
+}
+
+.local .der {
+  width: 100%;
+  flex: 2;
+}
+
+.local h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  margin: 15px 10px;
+  flex: 3;
+}
+
+i {
+  color: #1a237e;
+  padding: 0 10px;
+}
+
+.elem-local {
+  display: flex;
+  margin: 10px;
+}
+
+.elem-local a {
+  color: #1c121d;
+  position: relative;
+  text-decoration: none;
+}
+
+.elem-local a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #1a237e;
+  bottom: -5px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.elem-local a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.btn-margin {
+  margin: 20px;
+  margin-bottom: 0;
+}

@@ -63,6 +63,7 @@ const checkIfOwned = (local) => {
 
   const del = document.createElement("button");
   del.textContent = "Eliminar";
+  del.classList.add("btn-margin");
   del.addEventListener("click", () => {
     try {
       api.deleteLocal(local.id, myUser.token);
@@ -75,11 +76,12 @@ const checkIfOwned = (local) => {
 
   const edit = document.createElement("button");
   edit.textContent = "Editar";
+  edit.classList.add("btn-margin");
   edit.addEventListener("click", () => {
     window.location.href = `edit.html?id=${local.id}`;
   });
 
-  const parent = document.querySelector(".local");
+  const parent = document.querySelector(".container");
   parent.insertBefore(del, parent.children[1]);
   parent.insertBefore(edit, parent.children[1]);
 };
@@ -94,7 +96,6 @@ const pintarLocal = (loc) => {
   local.querySelector("a").href = "https://" + loc.url;
   local.querySelector("#precio").textContent = loc.consumicion;
   local.querySelector("#musica").textContent = loc.musica;
-  local.querySelector("#nombre").textContent = loc.user.username;
   local.querySelector("#email").textContent = loc.user.email;
   pintarReviews(loc.reviews);
 };

@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NightLife</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -21,21 +28,40 @@
     <main>
       <div class="container">
         <div class="local">
-          <h2></h2>
-          <h3>Dirección</h3>
-          <p id="dir"></p>
-          <h3>Tipo de local</h3>  
-          <p id="tipo"></p>
-          <h3>Horario</h3>
-          <p id="hor"></p>
-          <a href="www.latabernadeangel.com" id="web"></a>
-          <h4>Precio copa</h4>
-          <p id="precio"></p>
-          <h4>Música</h4>
-          <p id="musica"></p>
-          <h4>Contacto</h4>
-          <p id="nombre"></p>
-          <p id="email"></p>
+          <div class="izq">
+            <h2></h2>
+            <div class="tipo-local">
+              <p id="tipo"></p>
+            </div>
+          </div>
+          <div class="der">
+            <div class="elem-local">
+              <i class="fa-sharp fa-solid fa-location-dot"></i>
+              <p id="dir"></p>
+            </div>
+            <div class="elem-local">
+              <i class="fa-solid fa-clock"></i>
+              <p id="hor"></p>
+            </div>
+            <div class="elem-local">
+              <i class="fa-solid fa-globe"></i>
+              <a href="www.latabernadeangel.com" id="web"></a>
+            </div>
+            <div class="elem-local">
+              <i class="fa-solid fa-martini-glass-citrus"></i>
+              <p id="precio"></p>
+              <span>&#8364;</span>
+            </div>
+            <div class="elem-local">
+              <i class="fa-solid fa-music"></i>
+              <p id="musica"></p>
+            </div>
+            <div class="elem-local">
+              <i class="fa-solid fa-address-book"></i>
+              <p id="nombre"></p>
+              <p id="email"></p>
+            </div>
+          </div>
         </div>
         <div class="reviews">
           <h2>Reviews</h2>

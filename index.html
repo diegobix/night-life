@@ -19,7 +19,13 @@
       </div>
     </nav>
     <main>
-      <div class="container"></div>
+      <div class="container">
+        <form action="" id="search-form">
+          <label for="search">Buscar por nombre</label>
+          <input type="search" name="search" placeholder="Nombre del local" />
+        </form>
+        <div class="locales"></div>
+      </div>
     </main>
 
     <template id="template">
@@ -32,7 +38,7 @@
       </div>
     </template>
 
-    <script src="main.js"></script>
-    <script src="locales.js" type="module"></script>
+    <script src="app/main.js"></script>
+    <script src="app/locales.js" type="module"></script>
   </body>
 </html>

@@ -1,0 +1,55 @@
+import api from "./api.js";
+
+const getId = () => {
+  const qs = window.location.search;
+  const params = new URLSearchParams(qs);
+
+  return params.get("id");
+};
+
+const getToken = () => {
+  const storedUser = localStorage.getItem("NightLifeUser");
+  if (!storedUser || storedUser === undefined) throw "User not logged";
+  return JSON.parse(storedUser).token;
+};
+
+const fetchData = async () => {
+  const local = await api.getLocal(getId());
+  printLocal(local);
+};
+
+const printLocal = (local) => {
+  const inputs = document.querySelectorAll("form input");
+  console.log(local);
+  inputs[0].value = local.nombre;
+  inputs[1].value = local.direccion;
+  inputs[2].value = local.musica;
+  inputs[3].value = local.url;
+  inputs[4].value = local.consumicion;
+  inputs[5].value = local.horario;
+};
+
+const onSubmit = async (e) => {
+  e.preventDefault();
+  let token;
+  try {
+    token = getToken();
+  } catch (error) {
+    alert(error);
+    window.location.href = "index.html";
+  }
+  const formData = new FormData(e.target);
+  const localData = {};
+  formData.forEach((val, key) => (localData[key] = val));
+  try {
+    await api.updateLocal(getId(), token, localData);
+  } catch (error) {
+    alert(error);
+  }
+  window.location.href = "local.html?id=" + getId();
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchData();
+  document.querySelector("form").addEventListener("submit", (e) => onSubmit(e));
+});

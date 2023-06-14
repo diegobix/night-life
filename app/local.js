@@ -72,8 +72,15 @@ const checkIfOwned = (local) => {
     window.location.href = "my-locals.html";
   });
 
+  const edit = document.createElement("button");
+  edit.textContent = "Editar";
+  edit.addEventListener("click", () => {
+    window.location.href = `edit.html?id=${local.id}`;
+  });
+
   const parent = document.querySelector(".local");
   parent.insertBefore(del, parent.children[1]);
+  parent.insertBefore(edit, parent.children[1]);
 };
 
 const pintarLocal = (loc) => {
